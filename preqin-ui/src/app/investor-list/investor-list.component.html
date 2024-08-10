@@ -1,0 +1,46 @@
+<p>Investors</p>
+<div class="investor-list">
+    <table mat-table [dataSource]="investors" class="mat-elevation-z8" multiTemplateDataRows>
+      <!-- Columns Definition -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let investor"> {{investor.id}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let investor"> {{investor.name}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let investor"> {{investor.type}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="dateAdded">
+        <th mat-header-cell *matHeaderCellDef> Date Added </th>
+        <td mat-cell *matCellDef="let investor"> {{investor.dateAdded | date}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let investor"> {{investor.address}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="totalCommitment">
+        <th mat-header-cell *matHeaderCellDef> Total Commitment (10<sup>^</sup>6) </th>
+        <td mat-cell *matCellDef="let investor"> 
+          <button mat-button (click)="selectInvestor(investor)"> 
+            {{investor.totalCommitment | currency: investor.currency }}
+          </button>
+        </td>
+      </ng-container>
+  
+      <!-- Header and Row Declarations -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  
+  <app-commitment-breakdown *ngIf="selectedInvestor" [investor]="selectedInvestor"></app-commitment-breakdown>
+  
