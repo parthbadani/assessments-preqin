@@ -19,18 +19,18 @@ The solution PreqinAPI has 4 projects:
 3. Repository: persistence layer to fetch required data.
 4. Common: this is meant to host commonly used features, helper methods, extension methods, etc which can be used by the above layers. In this case, it is hosting model classes and some hardcoded data.
 
-DB Scripts:
+**DB Scripts:** <br />
 The scripts are placed at ./PreqinAPI/Repository/SQL Scripts/
 1. Tables.sql: execute this to create tables (with required constraints) in the database.
 2. StoredProcedures: execute this to create SPs that can be used to fetch the required data.
 
-Run:
+**Run:**
 1. Build the solution before first run.
 2. The application will be listening on port numbers: 37750 (for http), and 7135, 5033 (for https).
 Please keep these ports available before starting the API.
 Alternatively, these can be changed from launchSettings.json (./PreqinAPI/Presentation/Properties/launchSettings.json).
 
-Notes:
+**Notes:**
 1. Since it was advised to not spend more time, I have built the backend that serves hardcoded data. This data can be read/modified from ./PreqinAPI/Common/HardcodedData.cs file.
 However, to make it DB compliant, I have also attached SQL scripts that can be executed on relational databases (MS SQL Server preferred). The tables and SPs will serve the same data that is currently being served by the hardcoded objects.
 
@@ -39,9 +39,9 @@ Configure and ConfigureServices methods have been implemented in the Program.cs 
 
 
 ## Frontend Setup:
-Frontend is built leveraging Angular framework. Latest version 18.x is used. Please setup latest node and Angular on the machine before running the application.
-Once setup is completed, please run the application using "ng serve --open" command from ./preqin-ui.
-The app will be running on 4200 port. Incase this port is changed, please make sure to do subsequent changes in the API as well where CORS policy is defined (./PreqinAPI/Presentation/Program.cs)
+Frontend is built leveraging Angular framework. Latest version 18.x is used. <br />
+Please setup latest node and Angular on the machine before running the application. <br />
+Once setup is completed, please run the application using "ng serve --open" command from ./preqin-ui. The app will be running on 4200 port. Incase this port is changed, please make sure to do subsequent changes in the API as well where CORS policy is defined (./PreqinAPI/Presentation/Program.cs)
 
 
 ## Existing bugs:
