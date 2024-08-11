@@ -1,16 +1,16 @@
 # assessments-preqin
 
-Hello!
-Thank you for taking my candidacy to the next level.
-Please see "PreqinAPI" for the backend and "preqin-ui" for the frontend implementation of the assignment.
+Hello! <br />
+Thank you for taking my candidacy to the next level. <br />
+Please see **PreqinAPI** for the backend and **preqin-ui** for the frontend implementation of the assignment. <br />
 For e2e testing, please ensure API project is started before running the UI project.
 
 ## Backend Setup:
 The API is built using .Net 8 as the target framework. Therefore, it is recommended to build and run the project locally using Visual Studio 2022 IDE.
 
 ### Architecture:
-Onion architecture is followed (using N-layer architecture style).
-Outer layer, Presentation is dependent on Service layer which inturn is dependent on the Domain (repository) layer to fetch data from the database.
+Onion architecture is followed (using N-layer architecture style). <br />
+Outer layer, Presentation is dependent on Service layer which inturn is dependent on the Domain (repository) layer to fetch data from the database. <br />
 Dependency Injection pattern is used to inject the dependent objects via constructor.
 
 The solution PreqinAPI has 4 projects:
@@ -26,15 +26,15 @@ The scripts are placed at ./PreqinAPI/Repository/SQL Scripts/
 
 **Run:**
 1. Build the solution before first run.
-2. The application will be listening on port numbers: 37750 (for http), and 7135, 5033 (for https).
-Please keep these ports available before starting the API.
-Alternatively, these can be changed from launchSettings.json (./PreqinAPI/Presentation/Properties/launchSettings.json).
+2. The application will be listening on port numbers: 37750 (for http), and 7135, 5033 (for https). <br />
+Please keep these ports available before starting the API. <br />
+Alternatively, these can be changed from launchSettings.json (./PreqinAPI/Presentation/Properties/launchSettings.json). If changed, please update ./preqin-ui/src/app/investor.service.ts accordingly so that frontent is able to reach the updated port number.
 
 **Notes:**
-1. Since it was advised to not spend more time, I have built the backend that serves hardcoded data. This data can be read/modified from ./PreqinAPI/Common/HardcodedData.cs file.
+1. Since it was advised to not spend more time, I have built the backend that serves hardcoded data. This data can be read/modified from ./PreqinAPI/Common/HardcodedData.cs file. <br />
 However, to make it DB compliant, I have also attached SQL scripts that can be executed on relational databases (MS SQL Server preferred). The tables and SPs will serve the same data that is currently being served by the hardcoded objects.
 
-2. There are not much dependencies required for this solution. Thus, separate Startup.cs file is not used.
+2. There are not much dependencies required for this solution. Thus, separate Startup.cs file is not used. <br />
 Configure and ConfigureServices methods have been implemented in the Program.cs file itself.
 
 
@@ -45,9 +45,9 @@ Once setup is completed, please run the application using "ng serve --open" comm
 
 
 ## Existing bugs:
-1. After displaying the Investors list, if the user clicks on a particular Commitment against that investor, Commitment section opens without displaying any specific data.
-Please click on other investor's commitment and then re-click on the first selected investor.
-Then it'll display the commitments under "All" tabs correctly.
+1. After displaying the Investors list, if the user clicks on a particular Commitment against that investor, Commitment section opens without displaying any specific data. <br />
+Please click on other investor's commitment and then re-click on the first selected investor. <br />
+Then it'll display the commitments under "All" tabs correctly. <br />
 I think this is because change detection is not working properly. I tried using ChangeDetectorRef and forcing change detection cycle, but no luck.
 2. Filtering is not working for selected asset class under commitment.
 
@@ -59,3 +59,4 @@ I think this is because change detection is not working properly. I tried using 
 4. Create CI pipeline with all the necessary checks to make sure things are stable post each commit.
 5. Proper documentation.
 6. The app supports single currency for an investor at the moment. This can be enhanced if the investor has commitments offshores.
+7. Tight dependency on URLs, port numbers, etc can be removed to a single config place.
