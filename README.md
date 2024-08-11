@@ -1,19 +1,20 @@
 # assessments-preqin
 
 Hello!
-Thank you for taking my application to the next level. Please see "PreqinAPI" for the backend and "preqin-ui" for the frontend implementation of the assignment.
+Thank you for taking my candidacy to the next level.
+Please see "PreqinAPI" for the backend and "preqin-ui" for the frontend implementation of the assignment.
 For e2e testing, please ensure API project is started before running the UI project.
 
-Backend Setup:
+## Backend Setup:
 The API is built using .Net 8 as the target framework. Therefore, it is recommended to build and run the project locally using Visual Studio 2022 IDE.
 
-Architecture:
+### Architecture:
 Onion architecture is followed (using N-layer architecture style).
-Outer layer, Presentation is dependent on Service layer which inturn is dependent on the Persistence layer to fetch data from the database.
+Outer layer, Presentation is dependent on Service layer which inturn is dependent on the Domain (repository) layer to fetch data from the database.
 Dependency Injection pattern is used to inject the dependent objects via constructor.
 
 The solution PreqinAPI has 4 projects:
-1. Presentation: to host the API and load Swagger page.
+1. Presentation: to host the API and Swagger page.
 2. Service: service layer for business logic (if needed).
 3. Repository: persistence layer to fetch required data.
 4. Common: this is meant to host commonly used features, helper methods, extension methods, etc which can be used by the above layers. In this case, it is hosting model classes and some hardcoded data.
@@ -37,13 +38,13 @@ However, to make it DB compliant, I have also attached SQL scripts that can be e
 Configure and ConfigureServices methods have been implemented in the Program.cs file itself.
 
 
-Frontend Setup:
+## Frontend Setup:
 Frontend is built leveraging Angular framework. Latest version 18.x is used. Please setup latest node and Angular on the machine before running the application.
 Once setup is completed, please run the application using "ng serve --open" command from ./preqin-ui.
 The app will be running on 4200 port. Incase this port is changed, please make sure to do subsequent changes in the API as well where CORS policy is defined (./PreqinAPI/Presentation/Program.cs)
 
 
-Existing bugs:
+## Existing bugs:
 1. After displaying the Investors list, if the user clicks on a particular Commitment against that investor, Commitment section opens without displaying any specific data.
 Please click on other investor's commitment and then re-click on the first selected investor.
 Then it'll display the commitments under "All" tabs correctly.
@@ -51,10 +52,10 @@ I think this is because change detection is not working properly. I tried using 
 2. Filtering is not working for selected asset class under commitment.
 
 
-Future Enhancements:
+## Future Enhancements:
 1. Fix existing bugs.
 2. Unit testing for frontend and backend.
-3. Pagenation: Server-side preferred while displaying Investor list and for displaying related Commitments.
+3. Pagination: Server-side preferred while displaying Investor list and for displaying related Commitments.
 4. Create CI pipeline with all the necessary checks to make sure things are stable post each commit.
 5. Proper documentation.
 6. The app supports single currency for an investor at the moment. This can be enhanced if the investor has commitments offshores.
