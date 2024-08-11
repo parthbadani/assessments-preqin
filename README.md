@@ -57,3 +57,4 @@ Future Enhancements:
 3. Pagenation: Server-side preferred while displaying Investor list and for displaying related Commitments.
 4. Create CI pipeline with all the necessary checks to make sure things are stable post each commit.
 5. Proper documentation.
+6. The app supports single currency for an investor at the moment. This can be enhanced if the investor has commitments offshores.
