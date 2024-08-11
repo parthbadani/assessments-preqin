@@ -17,10 +17,5 @@ namespace Service.Implementations
         {
             return await _investorRepository.GetInvestors();
         }
-
-        public async Task<Investor> GetInvestor(int id)
-        {
-            return await _investorRepository.GetInvestor(id);
-        }
     }
 }

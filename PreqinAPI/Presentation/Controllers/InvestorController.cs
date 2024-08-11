@@ -21,17 +21,5 @@ namespace Presentation.Controllers
         {
             return await _investorService.GetInvestors();
         }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Investor>> GetInvestor(int id)
-        {
-            var investor = await _investorService.GetInvestor(id);
-            if (investor == null)
-            {
-                return NotFound();
-            }
-
-            return investor;
-        }
     }
 }

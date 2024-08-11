@@ -1,5 +1,4 @@
 ﻿using Common.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 
@@ -20,12 +19,6 @@ namespace Presentation.Controllers
         public async Task<ActionResult<List<Commitment>>> GetCommitmentsByInvestor(int investorId)
         {
             return await _commitmentService.GetCommitmentsByInvestor(investorId);
-        }
-
-        [HttpGet("by-asset-class/{assetClass}")]
-        public async Task<ActionResult<List<Commitment>>> GetCommitmentsByAssetClass(string assetClass)
-        {
-            return await _commitmentService.GetCommitmentsByAssetClass(assetClass);
         }
     }
 }

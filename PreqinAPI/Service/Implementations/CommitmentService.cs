@@ -17,10 +17,5 @@ namespace Service.Implementations
         {
             return await _commitmentRepository.GetCommitmentsByInvestorId(investorId);
         }
-
-        public async Task<List<Commitment>> GetCommitmentsByAssetClass(string assetClass)
-        {
-            return await _commitmentRepository.GetCommitmentsByAssetClass(assetClass);
-        }
     }
 }
