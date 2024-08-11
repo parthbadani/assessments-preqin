@@ -8,7 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// builder.Services.AddEndpointsApiExplorer();
 // Configure CORS
 builder.Services.AddCors(options =>
 {
@@ -44,8 +43,5 @@ app.UseEndpoints(endpoints =>
 });
 
 app.UseHttpsRedirection();
-
-// app.UseAuthorization();
-// app.MapControllers();
 
 app.Run();
