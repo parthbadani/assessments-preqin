@@ -1,3 +1,4 @@
+using Presentation;
 using Repository.Implementations;
 using Repository.Interfaces;
 using Service.Implementations;
@@ -33,6 +34,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Preqin API V1"));
 }
+
+// Register the middleware
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseCors("AllowPreqinAngularApp");
 

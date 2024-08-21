@@ -19,7 +19,13 @@ namespace Presentation.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Investor>>> GetInvestors()
         {
-            return await _investorService.GetInvestors();
+            var investors = await _investorService.GetInvestors();
+            if (investors == null || investors.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(investors);
         }
     }
 }

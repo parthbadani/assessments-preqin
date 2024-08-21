@@ -18,7 +18,14 @@ namespace Presentation.Controllers
         [HttpGet("by-investor/{investorId}")]
         public async Task<ActionResult<List<Commitment>>> GetCommitmentsByInvestor(int investorId)
         {
-            return await _commitmentService.GetCommitmentsByInvestor(investorId);
+            var commitments = await _commitmentService.GetCommitmentsByInvestor(investorId);
+
+            if (commitments == null || commitments.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(commitments);
         }
     }
 }
